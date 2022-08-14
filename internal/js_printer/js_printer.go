@@ -2416,6 +2416,13 @@ func (p *printer) printExpr(expr js_ast.Expr, level js_ast.L, flags printExprFla
 			p.print(")")
 		}
 
+	case *js_ast.ERelativeURL:
+		record := &p.importRecords[e.ImportRecordIndex]
+		if record.Kind == ast.ImportDynamic {
+			p.addSourceMapping(record.Range.Loc)
+			p.printQuotedUTF8(record.Path.Text, true /* allowBacktick */)
+		}
+
 	case *js_ast.EImportString:
 		p.addSourceMapping(expr.Loc)
 		p.printRequireOrImportExpr(e.ImportRecordIndex, level, flags, e.CloseParenLoc)
