@@ -465,6 +465,7 @@ func (*EIf) isExpr()                   {}
 func (*ERequireString) isExpr()        {}
 func (*ERequireResolveString) isExpr() {}
 func (*EImportString) isExpr()         {}
+func (*ERelativeURL) isExpr()         {}
 func (*EImportCall) isExpr()           {}
 
 type EArray struct {
@@ -863,6 +864,10 @@ type ERequireString struct {
 type ERequireResolveString struct {
 	ImportRecordIndex uint32
 	CloseParenLoc     logger.Loc
+}
+
+type ERelativeURL struct {
+	ImportRecordIndex uint32
 }
 
 type EImportString struct {
