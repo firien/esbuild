@@ -14608,9 +14608,9 @@ func (p *parser) visitExprInOut(expr js_ast.Expr, in exprIn) (js_ast.Expr, exprO
 			s, _ := e.Args[0].Data.(*js_ast.EString)
 			importRecordIndex := p.addImportRecord(ast.ImportDynamic, e.Args[0].Loc, helpers.UTF16ToString(s.Value), nil, 0)
 			p.importRecordsForCurrentPart = append(p.importRecordsForCurrentPart, importRecordIndex)
-			e.Args = []js_ast.Expr{{Loc: e.Args[0].Loc, Data: &js_ast.ERelativeURL{
+			e.Args[0] = js_ast.Expr{Loc: e.Args[0].Loc, Data: &js_ast.ERelativeURL{
 				ImportRecordIndex: importRecordIndex,
-			}}}
+			}}
 		} else {
 			p.warnAboutImportNamespaceCall(e.Target, exprKindNew)
 
