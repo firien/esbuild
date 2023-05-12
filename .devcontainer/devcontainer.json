@@ -1,0 +1,9 @@
+{
+  "name": "esbuilder",
+  "build": { "dockerfile": "Dockerfile" },
+  "customizations": {
+    "vscode": {
+      "extensions": ["golang.go"]
+    }
+  }
+}
