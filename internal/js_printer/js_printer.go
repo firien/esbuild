@@ -2514,7 +2514,7 @@ func (p *printer) printExpr(expr js_ast.Expr, level js_ast.L, flags printExprFla
 		record := &p.importRecords[e.ImportRecordIndex]
 		if record.Kind == ast.ImportDynamic {
 			p.addSourceMapping(record.Range.Loc)
-			p.printQuotedUTF8(record.Path.Text, true /* allowBacktick */)
+			p.printQuotedUTF8(record.Path.Text, printQuotedAllowBacktick)
 		}
 
 	case *js_ast.EImportString:
