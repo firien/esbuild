@@ -42,5 +42,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./npm/@esbuild/linux-x64/bin/esbuild
-          asset_name: esbuild
+          asset_name: esbuild-linux-x64
           asset_content_type: application/octet-stream
